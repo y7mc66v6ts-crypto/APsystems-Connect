@@ -72,10 +72,20 @@ def build_headers(
         http_method,
     )
 
+    print("=== DEBUG AUTH ===")
+    print("Timestamp:", timestamp)
+    print("Nonce:", nonce)
+    print("RequestPath:", request_path)
+    print("StringToSign:", string_to_sign)
+    print("==================")
+
+
     signature = create_signature(
         string_to_sign,
         app_secret,
     )
+
+    print("Signature:", signature)
 
     return {
         "X-CA-AppId": app_id,
