@@ -4,6 +4,8 @@ import hmac
 import hashlib
 import base64
 
+DEBUG = False
+
 
 def create_timestamp():
     """Geeft de huidige tijd in milliseconden terug."""
@@ -72,20 +74,21 @@ def build_headers(
         http_method,
     )
 
-    print("=== DEBUG AUTH ===")
-    print("Timestamp:", timestamp)
-    print("Nonce:", nonce)
-    print("RequestPath:", request_path)
-    print("StringToSign:", string_to_sign)
-    print("==================")
-
+    if DEBUG:
+        print("=== DEBUG AUTH ===")
+        print("Timestamp:", timestamp)
+        print("Nonce:", nonce)
+        print("RequestPath:", request_path)
+        print("StringToSign:", string_to_sign)
+        print("==================")
 
     signature = create_signature(
         string_to_sign,
         app_secret,
     )
 
-    print("Signature:", signature)
+    if DEBUG:
+        print("Signature:", signature)
 
     return {
         "X-CA-AppId": app_id,
