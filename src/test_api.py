@@ -1,5 +1,5 @@
-from api import get_system_details
+from api import get_inverters
 
-data = get_system_details()
+response = get_inverters()
 
-print(data)
+print(response)
