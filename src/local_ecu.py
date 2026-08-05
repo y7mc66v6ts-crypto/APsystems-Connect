@@ -28,12 +28,30 @@ class LocalECU:
         self.connected = True
 
     def send(self, command):
+
         """Verstuur een commando naar de ECU."""
 
         self.socket.sendall(command.encode("utf-8"))
 
-    def receive(self):
-        pass
+    def receive(self, buffer_size=4096):
+
+        """Ontvang data van de ECU.
+
+    Parameters
+    ----------
+    buffer_size : int, optional
+        Maximum aantal bytes dat in één keer wordt ontvangen.
+        Standaard: 4096 bytes.
+
+    Returns
+    -------
+    bytes
+        De ruwe data die door de ECU is verzonden.
+    """
+
+        return self.socket.recv(buffer_size)
+
+        return data
 
     def get_current_power(self):
         pass
