@@ -27,8 +27,10 @@ class LocalECU:
 
         self.connected = True
 
-    def send(self):
-        pass
+    def send(self, command):
+        """Verstuur een commando naar de ECU."""
+
+        self.socket.sendall(command.encode("utf-8"))
 
     def receive(self):
         pass
