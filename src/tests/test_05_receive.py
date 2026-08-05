@@ -14,7 +14,7 @@ Stap 5 van APsystems-Connect.
 
 Status
 ------
-IN ONTWIKKELING
+PASSED
 ===============================================================================
 """
 
