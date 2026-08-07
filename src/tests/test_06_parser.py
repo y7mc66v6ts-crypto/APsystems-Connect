@@ -27,7 +27,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from local_ecu import LocalECU
-from parser import read_string, read_int
+from parser import parse_ecu_info
 
 ecu = LocalECU("192.168.1.220")
 
@@ -40,13 +40,9 @@ ecu.send(command)
 
 data = ecu.receive()
 
-ecu_id = read_string(data, 13, 12)
+info = parse_ecu_info(data)
 
-print(f"ECU ID : {ecu_id}")
-lifetime_energy = read_int(data, 27, 4) / 10
-current_power = read_int(data, 31, 4)
-today_energy = read_int(data, 35, 4) / 100
-
-print(f"Lifetime Energy : {lifetime_energy:.1f} kWh")
-print(f"Current Power   : {current_power} W")
-print(f"Today Energy    : {today_energy:.2f} kWh")
+print(f"ECU ID          : {info['ecu_id']}")
+print(f"Lifetime Energy : {info['lifetime_energy']:.1f} kWh")
+print(f"Current Power   : {info['current_power']} W")
+print(f"Today Energy    : {info['today_energy']:.2f} kWh")
