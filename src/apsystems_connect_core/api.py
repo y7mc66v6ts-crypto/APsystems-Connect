@@ -1,6 +1,6 @@
 import requests
 
-from config import (
+from apsystems_connect_core.config import (
     APP_ID,
     APP_SECRET,
     SID,
@@ -8,7 +8,7 @@ from config import (
 )
 
 
-from auth import build_headers
+from apsystems_connect_core.auth import build_headers
 
 
 def get_system_details():

@@ -21,13 +21,9 @@ PASSED
 ===============================================================================
 """
 
-import sys
-from pathlib import Path
 
-sys.path.append(str(Path(__file__).resolve().parent.parent))
-
-from local_ecu import LocalECU
-from parser import parse_ecu_info
+from apsystems_connect_core.local_ecu import LocalECU
+from apsystems_connect_core.parser import parse_ecu_info
 
 ecu = LocalECU("192.168.1.220")
 

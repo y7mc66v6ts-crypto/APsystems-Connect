@@ -1,6 +1,6 @@
 import socket
 
-from parser import read_string, read_int
+from apsystems_connect_core.parser import read_string, read_int
 
 ECU_IP = "192.168.1.220"
 ECU_PORT = 8899

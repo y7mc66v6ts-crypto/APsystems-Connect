@@ -1,4 +1,4 @@
-from api import get_inverters
+from apsystems_connect_core.api import get_inverters
 
 response = get_inverters()
 

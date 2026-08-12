@@ -5,7 +5,7 @@ Controleert of get_ecu_info() de ECU-data correct
 ophaalt via de nieuwe local_api-laag.
 """
 
-from local_api import get_ecu_info
+from apsystems_connect_core.local_api import get_ecu_info
 
 
 print("===== LOCAL API TEST =====")
