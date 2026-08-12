@@ -79,3 +79,30 @@ De bereikbaarheid wordt voorlopig periodiek gecontroleerd.
 Een automatische powercycle van de ECU is daarom nog niet nodig.
 
 **Status:** stabiel, verdere observatie gewenst.
+
+### Milestone 7: ECU info uit parser succesvol
+
+- ECU ID succesvol uit de ECU-response gehaald
+- Lifetime Energy succesvol uitgelezen
+- Current Power succesvol uitgelezen
+- Today Energy succesvol uitgelezen
+- `parse_ecu_info()` werkt correct met de ontvangen ECU-data
+- Test uitgevoerd via `test_07_ecu_info.py`
+
+### Milestone 8: Current Power uit parser succesvol
+
+- `current_power` wordt succesvol uit de ECU-response gehaald via `parse_ecu_info()`
+- De waarde wordt door de parser als Watt teruggegeven
+- Test uitgevoerd via `test_08_current_power.py`
+- De test is meerdere keren uitgevoerd en gaf de actuele productie correct weer
+- `Current Power` vormt later de basis voor de betreffende sensor in Home Assistant
+
+### Milestone 9: Lokale API-laag succesvol
+
+- Nieuwe `local_api.py` toegevoegd als publieke interface voor lokale ECU-data
+- `get_ecu_info()` combineert ECU-communicatie en parsing in één functie
+- De bestaande `LocalECU`-driver uitgebreid met `close()` voor het correct sluiten van de TCP-verbinding
+- De ECU-verbinding wordt met `try/finally` altijd netjes afgesloten
+- Nieuwe test toegevoegd: `test_09_local_api.py`
+- ECU ID, Lifetime Energy, Current Power en Today Energy worden succesvol via de lokale API-laag uitgelezen
+- Hogere lagen hoeven hierdoor geen kennis meer te hebben van de TCP-communicatie of parser
