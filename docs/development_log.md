@@ -106,3 +106,20 @@ Een automatische powercycle van de ECU is daarom nog niet nodig.
 - Nieuwe test toegevoegd: `test_09_local_api.py`
 - ECU ID, Lifetime Energy, Current Power en Today Energy worden succesvol via de lokale API-laag uitgelezen
 - Hogere lagen hoeven hierdoor geen kennis meer te hebben van de TCP-communicatie of parser
+
+### Milestone 10: APsystems core als zelfstandig Python-package
+
+- De APsystems-logica is ondergebracht in `src/apsystems_connect_core`
+- `api.py`, `auth.py`, `config.py`, `local_api.py`, `local_ecu.py` en `parser.py`
+  vormen nu één zelfstandig Python-package
+- `pyproject.toml` toegevoegd voor installatie van de core
+- Core succesvol als editable package geïnstalleerd met `pip install -e .`
+- Import van `apsystems_connect_core` werkt zonder `PYTHONPATH=src`
+- `test_09_local_api.py` succesvol uitgevoerd zonder `PYTHONPATH`
+- Tests 01 t/m 09 opnieuw succesvol gevalideerd na de refactor
+- Cloud API opnieuw getest met HTTP 200
+- Oude dubbele `local_ecu.py` en `parser.py` uit `custom_components` verwijderd
+- Home Assistant-laag gescheiden van de APsystems core
+- Home Assistant coordinator toegevoegd voor centrale polling van ECU-data
+- Current Power sensor gebruikt voortaan `coordinator.data`
+- Volgende stap: distributie/configuratie van de core voor Home Assistant uitwerken
