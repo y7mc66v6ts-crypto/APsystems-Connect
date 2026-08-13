@@ -1,5 +1,7 @@
 {
   "domain": "apsystems_connect",
   "name": "APsystems Connect",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "documentation": "https://github.com/y7mc66v6ts-crypto/APsystems-Connect",
+  "iot_class": "local_polling"
 }
