@@ -5,6 +5,6 @@
   "documentation": "https://github.com/y7mc66v6ts-crypto/APsystems-Connect",
   "iot_class": "local_polling",
   "requirements": [
-    "apsystems-connect-core @ git+https://github.com/y7mc66v6ts-crypto/APsystems-Connect.git@7c754d3a8852733ccb38e1b81d62c924115311a"
+    "apsystems-connect-core @ git+https://github.com/y7mc66v6ts-crypto/APsystems-Connect.git@core-v0.1.1"
   ]
 }
