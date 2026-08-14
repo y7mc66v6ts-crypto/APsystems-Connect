@@ -11,7 +11,7 @@ from homeassistant.helpers.update_coordinator import (
 
 from apsystems_connect_core.local_api import get_ecu_info
 
-from .const import DOMAIN
+from .const import DOMAIN, ECU_IP, ECU_PORT
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -34,7 +34,11 @@ class APsystemsDataCoordinator(DataUpdateCoordinator):
         """Haal nieuwe gegevens op van de APsystems ECU."""
 
         try:
-            return await self.hass.async_add_executor_job(get_ecu_info)
+            return await self.hass.async_add_executor_job(
+                get_ecu_info,
+                ECU_IP,
+                ECU_PORT,
+            )
 
         except Exception as err:
             raise UpdateFailed(

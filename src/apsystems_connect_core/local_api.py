@@ -7,14 +7,12 @@ van de ontvangen data.
 
 from apsystems_connect_core.local_ecu import LocalECU
 from apsystems_connect_core.parser import parse_ecu_info
-from apsystems_connect_core.config import ECU_IP, ECU_PORT
 
 
-def get_ecu_info():
-
+def get_ecu_info(ip: str, port: int = 8899):
     """Haal de actuele ECU-informatie lokaal op."""
 
-    ecu = LocalECU(ECU_IP, ECU_PORT)
+    ecu = LocalECU(ip, port)
 
     try:
         ecu.connect()
